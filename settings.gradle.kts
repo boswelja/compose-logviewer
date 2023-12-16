@@ -22,10 +22,10 @@ plugins {
 
 rootProject.name = "Compose Log Viewer"
 
-//include(
-//    ":core",
+include(
+    ":core",
 //    ":material3",
-//)
+)
 
 gradleEnterprise {
     buildScan {
