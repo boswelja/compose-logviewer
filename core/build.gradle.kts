@@ -53,6 +53,8 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
+                api(libs.kotlinx.datetime)
+
                 implementation(compose.runtime)
                 implementation(compose.foundation)
                 implementation(compose.animation)

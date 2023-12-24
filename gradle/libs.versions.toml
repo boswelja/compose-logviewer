@@ -6,8 +6,12 @@ dokka = "1.9.10"
 
 compose = "1.5.11"
 
+kotlinx-datetime = "0.5.0"
+
 [libraries]
-kotlin-test = { group = "org.jetbrains.kotlin", name = "kotlin-test" }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
+
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test" }
 
 [plugins]
 android-library = { id = "com.android.library", version.ref = "android-gradle-plugin" }
