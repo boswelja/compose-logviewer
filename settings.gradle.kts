@@ -24,7 +24,7 @@ rootProject.name = "Compose Log Viewer"
 
 include(
     ":core",
-//    ":material3",
+    ":material3",
 )
 
 gradleEnterprise {

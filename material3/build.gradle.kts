@@ -13,11 +13,12 @@ plugins {
     id("maven-publish")
     id("signing")
 }
+
 group = "io.github.boswelja.logviewer"
 version = "1.0.0"
 
 android {
-    namespace = "com.boswelja.logviewer"
+    namespace = "com.boswelja.logviewer.material3"
 
     buildTypes {
         release {
@@ -53,11 +54,8 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                api(libs.kotlinx.datetime)
-
-                implementation(compose.runtime)
-                implementation(compose.foundation)
-                implementation(compose.animation)
+                api(project(":core"))
+                implementation(compose.material3)
             }
         }
     }
@@ -102,7 +100,7 @@ publishing {
 
     publications.withType<MavenPublication> {
         pom {
-            name = "core"
+            name = "material3"
             description = "Composable convenience for all your log-viewing needs!"
             url = "https://github.com/boswelja/compose-logviewer"
             licenses {
@@ -137,7 +135,7 @@ tasks.withType<DokkaTaskPartial>().configureEach {
         )
         sourceLink {
             localDirectory.set(projectDir.resolve("src"))
-            remoteUrl.set(URL("https://github.com/boswelja/compose-logviewer/tree/main/core/src"))
+            remoteUrl.set(URL("https://github.com/boswelja/compose-logviewer/tree/main/material3/src"))
             remoteLineSuffix.set("#L")
         }
     }
