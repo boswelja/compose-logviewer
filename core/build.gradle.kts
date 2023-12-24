@@ -60,6 +60,11 @@ kotlin {
                 implementation(compose.animation)
             }
         }
+        commonTest {
+            dependencies {
+                implementation(libs.kotlin.test)
+            }
+        }
     }
 }
 
