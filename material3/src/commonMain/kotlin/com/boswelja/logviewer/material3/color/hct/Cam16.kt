@@ -27,6 +27,7 @@ import kotlin.math.sqrt
  * <p>For example, white under the traditional assumption of a midday sun white point is accurately
  * measured as a slightly chromatic blue by CAM16. (roughly, hue 203, chroma 3, lightness 100)
  */
+@Suppress("MagicNumber", "LongParameterList")
 internal class Cam16
 /**
  * All of the CAM16 dimensions can be calculated from 3 of the dimensions, in the following
@@ -45,12 +46,12 @@ internal class Cam16
  * @param astar CAM16-UCS a coordinate
  * @param bstar CAM16-UCS b coordinate
  */ private constructor(
-    /** Hue in CAM16  */
+    /** Hue in CAM16. */
     // CAM16 color dimensions, see getters for documentation.
     val hue: Double,
-    /** Chroma in CAM16  */
+    /** Chroma in CAM16. */
     val chroma: Double,
-    /** Lightness in CAM16  */
+    /** Lightness in CAM16. */
     private val j: Double,
     /**
      * Brightness in CAM16.
@@ -77,12 +78,12 @@ internal class Cam16
      * relative to the color's own brightness, where chroma is colorfulness relative to white.
      */
     private val s: Double,
-    /** Lightness coordinate in CAM16-UCS  */
+    /** Lightness coordinate in CAM16-UCS. */
     // Coordinates in UCS space. Used to determine color distance, like delta E equations in L*a*b*.
     private val jstar: Double,
-    /** a* coordinate in CAM16-UCS  */
+    /** a* coordinate in CAM16-UCS. */
     private val astar: Double,
-    /** b* coordinate in CAM16-UCS  */
+    /** b* coordinate in CAM16-UCS. */
     private val bstar: Double
 ) {
 
@@ -160,8 +161,13 @@ internal class Cam16
             // hue
             val atan2 = atan2(b, a)
             val atanDegrees = MathUtils.toDegrees(atan2)
-            val hue =
-                if (atanDegrees < 0) atanDegrees + 360.0 else if (atanDegrees >= 360) atanDegrees - 360.0 else atanDegrees
+            val hue = if (atanDegrees < 0) {
+                atanDegrees + 360.0
+            } else if (atanDegrees >= 360) {
+                atanDegrees - 360.0
+            } else {
+                atanDegrees
+            }
             val hueRadians = MathUtils.toRadians(hue)
 
             // achromatic response to color

@@ -20,6 +20,7 @@ import kotlin.math.sqrt
  * <p>This class caches intermediate values of the CAM16 conversion process that depend only on
  * viewing conditions, enabling speed ups.
  */
+@Suppress("MagicNumber", "LongParameterList")
 internal class ViewingConditions
 /**
  * Parameters are intermediate values of the CAM16 conversion process. Their names are shorthand
@@ -78,10 +79,11 @@ internal class ViewingConditions
             val gW = whitePoint[0] * matrix[1][0] + whitePoint[1] * matrix[1][1] + whitePoint[2] * matrix[1][2]
             val bW = whitePoint[0] * matrix[2][0] + whitePoint[1] * matrix[2][1] + whitePoint[2] * matrix[2][2]
             val f = 0.8 + surround / 10.0
-            val c = if (f >= 0.9) MathUtils.lerp(0.59, 0.69, (f - 0.9) * 10.0) else MathUtils.lerp(
-                0.525, 0.59,
-                (f - 0.8) * 10.0
-            )
+            val c = if (f >= 0.9) {
+                MathUtils.lerp(0.59, 0.69, (f - 0.9) * 10.0)
+            } else {
+                MathUtils.lerp(0.525, 0.59, (f - 0.8) * 10.0)
+            }
             var d =
                 if (discountingIlluminant) 1.0 else f * (1.0 - 1.0 / 3.6 * exp((-adaptingLuminance - 42.0) / 92.0))
             d = MathUtils.clampDouble(0.0, 1.0, d)

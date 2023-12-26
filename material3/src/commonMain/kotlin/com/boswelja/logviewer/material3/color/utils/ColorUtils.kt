@@ -9,6 +9,7 @@ import kotlin.math.roundToInt
  * <p>Utility methods for color science constants and color space conversions that aren't HCT or
  * CAM16.
  */
+@Suppress("MagicNumber", "TooManyFunctions")
 internal object ColorUtils {
     private val SRGB_TO_XYZ = arrayOf(
         doubleArrayOf(0.41233895, 0.35762064, 0.18051042),
@@ -116,8 +117,7 @@ internal object ColorUtils {
      */
     private fun delinearized(rgbComponent: Double): Int {
         val normalized = rgbComponent / 100.0
-        var delinearized = 0.0
-        delinearized = if (normalized <= 0.0031308) {
+        val delinearized: Double = if (normalized <= 0.0031308) {
             normalized * 12.92
         } else {
             1.055 * normalized.pow(1.0 / 2.4) - 0.055

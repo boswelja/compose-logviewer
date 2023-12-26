@@ -13,6 +13,7 @@ import kotlin.math.sin
 import kotlin.math.sqrt
 
 /** A class that solves the HCT equation. */
+@Suppress("MagicNumber", "TooManyFunctions", "LoopWithTooManyJumpStatements", "NestedBlockDepth")
 internal object HctSolver {
     private val SCALED_DISCOUNT_FROM_LINRGB = arrayOf(
         doubleArrayOf(
@@ -590,7 +591,9 @@ internal object HctSolver {
             if (iterationRound == 4 || abs(fnj - y) < 0.002) {
                 return if (linrgb[0] > 100.01 || linrgb[1] > 100.01 || linrgb[2] > 100.01) {
                     0
-                } else ColorUtils.argbFromLinrgb(linrgb)
+                } else {
+                    ColorUtils.argbFromLinrgb(linrgb)
+                }
             }
             // Iterates with Newton method,
             // Using 2 * fn(j) / j as the approximation of fn'(j)

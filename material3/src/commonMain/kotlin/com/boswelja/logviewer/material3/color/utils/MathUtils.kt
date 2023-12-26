@@ -3,6 +3,7 @@ package com.boswelja.logviewer.material3.color.utils
 import kotlin.math.abs
 
 /** Utility methods for mathematical operations. */
+@Suppress("MagicNumber", "ReturnCount")
 internal object MathUtils {
     /**
      * The signum function.

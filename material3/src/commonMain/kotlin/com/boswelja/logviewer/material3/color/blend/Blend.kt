@@ -6,6 +6,7 @@ import com.boswelja.logviewer.material3.color.utils.MathUtils.rotationDirection
 import com.boswelja.logviewer.material3.color.utils.MathUtils.sanitizeDegreesDouble
 
 /** Functions for blending in HCT and CAM16. */
+@Suppress("MagicNumber")
 internal object Blend {
     /**
      * Blend the design color's HCT hue towards the key color's HCT hue, in a way that leaves the
