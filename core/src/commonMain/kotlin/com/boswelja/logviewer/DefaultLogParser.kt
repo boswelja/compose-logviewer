@@ -11,11 +11,6 @@ internal class DefaultLogParser : LogParser {
         // Extract timestamp info
         val timestampMutation = extractTimestamp(workingLine)
         workingLine = timestampMutation.result
-        // Try to de-duplicate timestamps (if possible)
-        try {
-            val deduplicatedTimestamp = extractTimestamp(workingLine)
-            workingLine = deduplicatedTimestamp.result
-        } catch (_: IllegalArgumentException) { /* There was no duplicate timestamp */ }
 
         // Extract log level
         val logLevel = extractLogLevel(workingLine)
@@ -47,7 +42,7 @@ internal class DefaultLogParser : LogParser {
             for (knownEntryName in logLevel.knownNames) {
                 if (logLevelMatch.value.contains(knownEntryName)) {
                     return StringMutation(
-                        result = input.removeRange(logLevelMatch.range),
+                        result = input.removeRange(logLevelMatch.range).replace("  ", " "),
                         extractedData = logLevel
                     )
                 }

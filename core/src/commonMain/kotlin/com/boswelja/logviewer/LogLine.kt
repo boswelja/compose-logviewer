@@ -27,8 +27,8 @@ public data class LogLine(
  * @property identifier A single character that can be used to easily identify the log level.
  */
 public enum class LogLevel(internal val knownNames: Set<String>, public val identifier: Char) {
-    Debug(setOf("[debug]", "[Debug]", "debug:", "DEBUG", "(D)"), 'D'),
-    Info(setOf("[info]", "[Info]", "info:", "INFO", "(I)", "[INF]"), 'I'),
-    Warning(setOf("[warn]", "[Warn]", "[warning]", "warn:", "WARNING", "[WRN]", "(W)"), 'W'),
-    Error(setOf("[error]", "[Error]", "error:", "ERROR", "[ERR]", "(E)"), 'E'),
+    Debug(setOf("[debug]", "[Debug]", "debug:", "DEBUG", "(D)", "level=debug"), 'D'),
+    Info(setOf("[info]", "[Info]", "info:", "INFO", "(I)", "[INF]", "level=info"), 'I'),
+    Warning(setOf("[warn]", "[Warn]", "[warning]", "warn:", "WARNING", "[WRN]", "(W)", "level=warning"), 'W'),
+    Error(setOf("[error]", "[Error]", "error:", "ERROR", "[ERR]", "(E)", "level=error"), 'E'),
 }
