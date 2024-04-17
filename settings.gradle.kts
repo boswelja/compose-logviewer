@@ -16,6 +16,7 @@ plugins {
 rootProject.name = "Compose Log Viewer"
 
 include(
+    ":benchmark",
     ":core",
     ":material3",
 )
