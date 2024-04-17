@@ -2,7 +2,11 @@ package com.boswelja.logviewer
 
 import kotlinx.datetime.Instant
 
-internal class DefaultLogParser : LogParser {
+/**
+ * The default implementation of [LogParser]. This is capable of simple log metadata extraction, and
+ * will strip extracted data from the log content.
+ */
+public class DefaultLogParser : LogParser {
 
     override fun parseLine(logLine: String): LogLine? {
         if (logLine.isBlank()) return null
@@ -53,7 +57,7 @@ internal class DefaultLogParser : LogParser {
 
     internal data class StringMutation<T>(val result: String, val extractedData: T)
 
-    companion object {
+    public companion object {
         private val logLevelPattern = LogLevel.entries
             .flatMap { it.knownNames }
             .joinToString(separator = "|") { Regex.escape(it) }
