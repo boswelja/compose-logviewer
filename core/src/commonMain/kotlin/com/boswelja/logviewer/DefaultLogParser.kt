@@ -2,6 +2,10 @@ package com.boswelja.logviewer
 
 import kotlinx.datetime.Instant
 
+/**
+ * The default implementation of [LogParser]. This is capable of simple log metadata extraction, and
+ * will strip extracted data from the log content.
+ */
 public class DefaultLogParser : LogParser {
 
     override fun parseLine(logLine: String): LogLine? {
