@@ -43,6 +43,11 @@ android {
     }
 }
 
+repositories {
+    google()
+    mavenCentral()
+}
+
 kotlin {
     applyDefaultHierarchyTemplate()
 
