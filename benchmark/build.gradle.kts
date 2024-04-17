@@ -1,9 +1,13 @@
+import kotlinx.benchmark.gradle.JvmBenchmarkTarget
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.compose.multiplatform)
 
     alias(libs.plugins.detekt)
+
+    id("org.jetbrains.kotlinx.benchmark") version "0.4.10"
 }
 
 android {
@@ -47,7 +51,18 @@ kotlin {
                 implementation(compose.runtime)
                 implementation(compose.foundation)
                 implementation(compose.animation)
+
+                implementation("org.jetbrains.kotlinx:kotlinx-benchmark-runtime:0.4.10")
             }
+        }
+    }
+}
+
+benchmark {
+    targets {
+        register("jvm") {
+            this as JvmBenchmarkTarget
+            jmhVersion = "1.37"
         }
     }
 }
