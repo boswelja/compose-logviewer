@@ -1,7 +1,11 @@
 package com.boswelja.logviewer.benchmark
 
+import com.boswelja.logviewer.ConfigurableLogParser
 import com.boswelja.logviewer.DefaultLogParser
 import com.boswelja.logviewer.LogParser
+import com.boswelja.logviewer.LogParserSettings
+import com.boswelja.logviewer.StripLogLevelMode
+import com.boswelja.logviewer.StripTimestampMode
 import kotlinx.benchmark.Benchmark
 import kotlinx.benchmark.Scope
 import kotlinx.benchmark.Setup
@@ -16,7 +20,12 @@ open class LogParserBenchmark {
 
     @Setup
     fun setUp() {
-        logParser = DefaultLogParser()
+        logParser = ConfigurableLogParser(
+            LogParserSettings(
+                stripLogLevel = StripLogLevelMode.NONE,
+                stripTimestamps = StripTimestampMode.NONE
+            )
+        )
         singleLine = logFile.first()
     }
 
