@@ -3,6 +3,7 @@ import kotlinx.benchmark.gradle.JvmBenchmarkTarget
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.compose.compiler)
     alias(libs.plugins.compose.multiplatform)
 
     alias(libs.plugins.detekt)
@@ -35,7 +36,7 @@ repositories {
 }
 
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain(21)
 
     // Android
     androidTarget()

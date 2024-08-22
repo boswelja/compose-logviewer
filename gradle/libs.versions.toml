@@ -1,7 +1,7 @@
 [versions]
-android-gradle-plugin = "8.3.2"
+android-gradle-plugin = "8.5.2"
 detekt = "1.23.6"
-kotlin = "1.9.23"
+kotlin = "2.0.10"
 dokka = "1.9.20"
 
 compose = "1.6.11"
@@ -17,5 +17,6 @@ kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test" }
 android-library = { id = "com.android.library", version.ref = "android-gradle-plugin" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 compose-multiplatform = { id = "org.jetbrains.compose", version.ref = "compose" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }

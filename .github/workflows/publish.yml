@@ -11,14 +11,14 @@ jobs:
       packages: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup Java JDK
-        uses: actions/setup-java@v3.9.0
+        uses: actions/setup-java@v4
         with:
-          java-version: 17
+          java-version: 21
           distribution: temurin
       - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2.7.0
+        uses: gradle/actions/setup-gradle@v3
       - name: Build
         run: ./gradlew publish --scan
         env:
@@ -35,18 +35,18 @@ jobs:
     needs: publish
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup Java JDK
-        uses: actions/setup-java@v3.9.0
+        uses: actions/setup-java@v4
         with:
-          java-version: 17
+          java-version: 21
           distribution: temurin
       - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2.7.0
+        uses: gradle/actions/setup-gradle@v3
       - name: Build
         run: ./gradlew dokkaHtmlMultiModule
       - name: Upload Pages Artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           path: "build/dokka/htmlMultiModule/"
 
@@ -62,4 +62,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
