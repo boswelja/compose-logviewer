@@ -53,7 +53,7 @@ kotlin {
                 implementation(compose.foundation)
                 implementation(compose.animation)
 
-                implementation("org.jetbrains.kotlinx:kotlinx-benchmark-runtime:0.4.12")
+                implementation("org.jetbrains.kotlinx:kotlinx-benchmark-runtime:0.4.13")
             }
         }
     }
