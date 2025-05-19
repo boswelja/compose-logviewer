@@ -8,7 +8,7 @@ plugins {
 
     alias(libs.plugins.detekt)
 
-    id("org.jetbrains.kotlinx.benchmark") version "0.4.13"
+    id("org.jetbrains.kotlinx.benchmark") version "0.4.14"
 }
 
 android {
