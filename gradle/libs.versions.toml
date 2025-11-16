@@ -6,7 +6,7 @@ dokka = "2.1.0"
 
 compose = "1.9.3"
 
-kotlinx-datetime = "0.6.2"
+kotlinx-datetime = "0.7.1-0.6.x-compat"
 
 [libraries]
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
