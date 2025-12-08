@@ -8,7 +8,7 @@ plugins {
 
     alias(libs.plugins.detekt)
 
-    id("org.jetbrains.kotlinx.benchmark") version "0.4.14"
+    id("org.jetbrains.kotlinx.benchmark") version "0.4.15"
 }
 
 android {
@@ -53,7 +53,7 @@ kotlin {
                 implementation(compose.foundation)
                 implementation(compose.animation)
 
-                implementation("org.jetbrains.kotlinx:kotlinx-benchmark-runtime:0.4.14")
+                implementation("org.jetbrains.kotlinx:kotlinx-benchmark-runtime:0.4.15")
             }
         }
     }
